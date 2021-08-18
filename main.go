@@ -287,7 +287,7 @@ func (a *Agent) SignWithFlags(key ssh.PublicKey, data []byte, flags agent.Signat
 
 		ctx, cancel := context.WithCancel(context.Background())
 		defer cancel()
-		a.touchNotification = time.NewTimer(5 * time.Second)
+		a.touchNotification = time.NewTimer(1 * time.Second)
 		go func() {
 			select {
 			case <-a.touchNotification.C:
