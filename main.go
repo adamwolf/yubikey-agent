@@ -316,7 +316,7 @@ func showNotification(message string) {
 	case "darwin":
 		message = strings.ReplaceAll(message, `\`, `\\`)
 		message = strings.ReplaceAll(message, `"`, `\"`)
-		appleScript := `display notification "%s" with title "yubikey-agent"`
+		appleScript := `display notification "%s" with title "yubikey-agent" sound name "Submarine"`
 		exec.Command("osascript", "-e", fmt.Sprintf(appleScript, message)).Run()
 	case "linux":
 		exec.Command("notify-send", "-i", "dialog-password", "yubikey-agent", message).Run()
